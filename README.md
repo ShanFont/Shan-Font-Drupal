@@ -384,11 +384,9 @@ vendor/bin/phpunit --group shanfont
 
 ## Support & Community
 
-- **Official Project Page**: https://www.drupal.org/project/shanfont
-- **Issue Queue**: https://www.drupal.org/project/issues/shanfont
-- **Documentation**: https://www.drupal.org/docs/contributed-modules/shanfont
-- **Community Support**: https://drupal.org/slack (join #shanfont channel)
-- **Rate & Review**: Help others by reviewing the module on Drupal.org
+- **Official Project Page**: https://shanfont.com
+- **Issue Queue**: https://github.com/ShanFont/Shan-Font-Drupal
+- **Documentation**: https://shanfont.com/use-drupal
 
 ## License
 
