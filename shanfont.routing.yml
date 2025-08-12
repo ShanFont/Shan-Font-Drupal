@@ -1,0 +1,7 @@
+shanfont.admin_form:
+  path: '/admin/config/user-interface/shanfont'
+  defaults:
+    _form: '\Drupal\shanfont\Form\ShanFontConfigForm'
+    _title: 'Shan Font Settings'
+  requirements:
+    _permission: 'administer site configuration'

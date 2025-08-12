@@ -1,0 +1,154 @@
+/**
+ * @file
+ * Shan Font CSS styles for local font loading and application.
+ */
+
+/* Font Face Definitions */
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-ThinItalic.woff2') format('woff2');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shan';
+  src: url('../fonts/Shan-BlackItalic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Quick Setup Styles - Apply Shan font to entire site */
+body.shanfont-quick-setup {
+  font-family: 'Shan', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body.shanfont-quick-setup * {
+  font-family: inherit;
+}
+
+/* Custom Selection Styles - More targeted application */
+body.shanfont-custom-selection {
+  --shanfont-family: 'Shan', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Apply custom fonts based on selected variants */
+body.shanfont-custom-selection[data-shanfont-variants~="shan_regular"] {
+  font-family: var(--shanfont-family);
+}
+
+body.shanfont-custom-selection[data-shanfont-variants~="shan_regular"] p,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_regular"] div,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_regular"] span {
+  font-family: var(--shanfont-family);
+}
+
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] h1,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] h2,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] h3,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] h4,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] h5,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] h6,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] strong,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_bold"] b {
+  font-family: var(--shanfont-family);
+  font-weight: 700;
+}
+
+body.shanfont-custom-selection[data-shanfont-variants~="shan_italic"] em,
+body.shanfont-custom-selection[data-shanfont-variants~="shan_italic"] i {
+  font-family: var(--shanfont-family);
+  font-style: italic;
+}
+
+/* Utility classes for manual application */
+.shanfont {
+  font-family: 'Shan', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.shanfont-thin {
+  font-family: 'Shan', sans-serif !important;
+  font-weight: 100 !important;
+}
+
+.shanfont-regular {
+  font-family: 'Shan', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.shanfont-bold {
+  font-family: 'Shan', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.shanfont-black {
+  font-family: 'Shan', sans-serif !important;
+  font-weight: 900 !important;
+}
+
+/* Responsive considerations */
+@media (max-width: 768px) {
+  body.shanfont-quick-setup,
+  body.shanfont-custom-selection {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* Print styles */
+@media print {
+  body.shanfont-quick-setup,
+  body.shanfont-custom-selection {
+    font-family: 'Shan', serif;
+  }
+}

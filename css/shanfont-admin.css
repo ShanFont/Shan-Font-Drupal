@@ -1,0 +1,232 @@
+/**
+ * @file
+ * Admin interface styles for Shan Font configuration form.
+ */
+
+ .shanfont-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.shanfont-logo {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.shanfont-title {
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.shanfont-website {
+  margin: 0.5rem 0;
+}
+
+.shanfont-website a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.shanfont-website a:hover {
+  text-decoration: underline;
+}
+
+.shanfont-developer {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Font mode radio buttons styling */
+.form-item-font-mode .form-radios {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-item-font-mode .form-radios .form-item {
+  background: #fff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-item-font-mode .form-radios .form-item:hover {
+  border-color: #007bff;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);
+}
+
+.form-item-font-mode .form-radios .form-item input[type="radio"]:checked + label {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.form-item-font-mode .form-radios .form-item input[type="radio"]:checked {
+  accent-color: #007bff;
+}
+
+.form-item-font-mode .form-radios .form-item label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/* Mode descriptions */
+.shanfont-mode-descriptions {
+  margin: 1rem 0 2rem 0;
+}
+
+.shanfont-mode-descriptions .description {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 1rem;
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  color: #1565c0;
+}
+
+/* Custom fonts fieldset */
+.form-item-font-mode + fieldset {
+  background: #fff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.form-item-font-mode + fieldset legend {
+  background: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.form-item-font-mode + fieldset .form-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-item-font-mode + fieldset .form-checkboxes .form-item {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.form-item-font-mode + fieldset .form-checkboxes .form-item:hover {
+  background: #e9ecef;
+  border-color: #007bff;
+}
+
+.form-item-font-mode + fieldset .form-checkboxes .form-item input[type="checkbox"]:checked {
+  accent-color: #007bff;
+}
+
+.form-item-font-mode + fieldset .form-checkboxes .form-item label {
+  font-weight: 500;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/* Submit button styling */
+.form-actions {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.form-actions .button--primary {
+  background: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.form-actions .button--primary:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .shanfont-header {
+    padding: 1rem;
+  }
+  
+  .shanfont-title {
+    font-size: 1.5rem;
+  }
+  
+  .form-item-font-mode .form-radios {
+    gap: 0.5rem;
+  }
+  
+  .form-item-font-mode .form-radios .form-item {
+    padding: 0.75rem;
+  }
+  
+  .form-item-font-mode + fieldset .form-checkboxes {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .form-item-font-mode .form-radios .form-item,
+  .form-actions .button--primary {
+    transition: none;
+  }
+  
+  .form-actions .button--primary:hover {
+    transform: none;
+  }
+}
+
+/* Focus styles for better accessibility */
+.form-item-font-mode .form-radios .form-item input[type="radio"]:focus + label,
+.form-item-font-mode + fieldset .form-checkboxes .form-item input[type="checkbox"]:focus + label {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .shanfont-header {
+    border-color: #000;
+  }
+  
+  .form-item-font-mode .form-radios .form-item {
+    border-color: #000;
+  }
+  
+  .form-item-font-mode .form-radios .form-item:hover {
+    border-color: #000;
+    background: #000;
+    color: #fff;
+  }
+}

@@ -1,0 +1,26 @@
+Current maintainers for Shan Font:
+
+* Tai Dev (shanfont) - https://www.drupal.org/u/shanfont
+
+This file lists the current maintainers for the Shan Font project.
+
+Maintainer responsibilities:
+- Review and approve patches and merge requests
+- Monitor issue queue and provide support
+- Release new versions and security updates
+- Maintain code quality and documentation
+- Coordinate with community contributors
+
+How to become a maintainer:
+- Demonstrate consistent, quality contributions to the project
+- Show expertise in Typography, Font Management, and Drupal development
+- Be responsive to community needs and issues
+- Follow Drupal community guidelines and best practices
+
+Project communication:
+- Issue queue: https://www.drupal.org/project/issues/shanfont
+- Official website: https://shanfont.com
+- Documentation: README.md and project page
+
+The Shan Font project welcomes contributions from the community.
+Please see the project page for contribution guidelines.

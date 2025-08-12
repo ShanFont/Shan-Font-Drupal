@@ -1,0 +1,18 @@
+Shan Font 8.x-1.0, 2025-08-02
+---------------------------------
+- Initial release.
+- Multiple font integration modes: Theme Defaults, Quick Setup, Custom Selection.
+- CDN font loading with local fallback support.
+- Automatic font application for Quick Setup mode.
+- Granular font variant selection for Custom Selection mode.
+- Performance optimization with font-display: swap.
+- Responsive design support for mobile devices.
+- Full accessibility compliance with keyboard navigation.
+- Admin interface with logo, website link, and developer attribution.
+- Comprehensive configuration validation and error handling.
+- Cache invalidation system for configuration changes.
+- Service-based architecture following Drupal best practices.
+- Complete test coverage for all functionality.
+- Multilingual support with Shan language labels.
+- Security hardened with proper input validation.
+- Compatible with Drupal 9, 10, and 11.

@@ -1,0 +1,152 @@
+SHAN FONT MODULE INSTALLATION INSTRUCTIONS
+=========================================
+
+REQUIREMENTS
+------------
+- Drupal 9.0 or higher (compatible with Drupal 9, 10, and 11)
+- PHP 7.4 or higher
+- Web server with WOFF2 font support
+- Administrative permissions to configure modules
+
+INSTALLATION
+------------
+
+Method 1: Composer (Recommended)
+--------------------------------
+1. Install via Composer:
+   composer require drupal/shanfont
+
+2. Enable the module:
+   drush en shanfont
+   
+   Or via admin interface:
+   - Go to Admin > Extend
+   - Check "Shan Font" module
+   - Click "Install"
+
+Method 2: Manual Installation
+-----------------------------
+1. Download the module from https://www.drupal.org/project/shanfont
+
+2. Extract to your modules directory:
+   - For custom modules: sites/all/modules/custom/shanfont/
+   - For contrib modules: sites/all/modules/contrib/shanfont/
+
+3. Create required directories and add files:
+   
+   a) Create fonts directory:
+      mkdir modules/custom/shanfont/fonts/
+   
+   b) Add font files to fonts/ directory:
+      - Shan-Thin.woff2
+      - Shan-ThinItalic.woff2
+      - Shan-Regular.woff2
+      - Shan-Italic.woff2
+      - Shan-Bold.woff2
+      - Shan-BoldItalic.woff2
+      - Shan-Black.woff2
+      - Shan-BlackItalic.woff2
+   
+   c) Create assets directory:
+      mkdir modules/custom/shanfont/assets/
+   
+   d) Add logo file to assets/ directory:
+      - ShanFont.webp
+
+4. Set proper file permissions:
+   chmod 644 modules/custom/shanfont/fonts/*.woff2
+   chmod 644 modules/custom/shanfont/assets/ShanFont.webp
+
+5. Enable the module:
+   drush en shanfont
+
+CONFIGURATION
+-------------
+1. Navigate to the configuration page:
+   Admin > Configuration > User Interface > Shan Font
+   URL: /admin/config/user-interface/shanfont
+
+2. Choose your font mode:
+   
+   Theme Defaults:
+   - Resets to your theme's original fonts
+   - No Shan fonts are loaded
+   
+   Quick Setup (Default):
+   - Automatically applies Shan fonts site-wide
+   - Loads from CDN first, falls back to local fonts
+   - Zero configuration required
+   
+   Custom Selection:
+   - Choose specific font variants to load
+   - Optimized for performance
+   - Granular control over font application
+
+3. If using Custom Selection mode:
+   - Check the font variants you want to use
+   - At least one font must be selected
+   - Recommended: Shan Regular and Shan Bold for basic usage
+
+4. Click "Save & Apply" to apply your settings
+
+VERIFICATION
+------------
+1. Clear Drupal cache:
+   drush cr
+
+2. Visit your website's frontend to verify fonts are loading
+
+3. Check browser developer tools:
+   - Network tab: Verify font files are loading (200 status)
+   - Elements tab: Check body classes (shanfont-quick-setup or shanfont-custom-selection)
+   - Computed styles: Verify font-family includes 'Shan'
+
+TROUBLESHOOTING
+---------------
+
+Fonts not loading:
+- Verify font files exist in fonts/ directory with correct names
+- Check file permissions (should be readable by web server)
+- Clear Drupal cache: drush cr
+- Check browser console for 404 errors on font files
+
+Configuration not saving:
+- Verify user has "administer site configuration" permission
+- Check PHP error logs for any issues
+- Clear cache and try again
+
+CDN not working:
+- Module will automatically fall back to local fonts
+- Check network connectivity to CDN: https://cdn.jsdelivr.net/gh/ShanFont/ShanFont@main/shan.css
+- Local fonts will be used if CDN is unavailable
+
+Performance issues:
+- Use Custom Selection mode to load only needed fonts
+- Enable CSS aggregation: Admin > Configuration > Development > Performance
+- Consider using a CDN for your entire site
+
+UNINSTALLATION
+--------------
+1. Disable the module:
+   drush pmu shanfont
+
+2. Remove module files:
+   rm -rf modules/custom/shanfont/
+
+3. Clear cache:
+   drush cr
+
+Note: Configuration will be automatically removed when module is uninstalled.
+
+SUPPORT
+-------
+- Issue queue: https://www.drupal.org/project/issues/shanfont
+- Documentation: README.md in module directory
+- Official website: https://shanfont.com
+
+For additional help, please post in the issue queue with:
+- Drupal version
+- Module version  
+- Browser and version
+- Detailed description of the issue
+- Any error messages from browser console or PHP logs

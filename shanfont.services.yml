@@ -1,0 +1,10 @@
+services:
+  shanfont.font_manager:
+    class: Drupal\shanfont\Service\ShanFontManager
+    arguments: ['@config.factory', '@module_handler', '@file_system']
+    
+  shanfont.cache_tags_invalidator:
+    class: Drupal\shanfont\EventSubscriber\ShanFontCacheInvalidator
+    arguments: ['@cache_tags.invalidator']
+    tags:
+      - { name: event_subscriber }

@@ -1,0 +1,10 @@
+font_mode: quick_setup
+selected_fonts:
+  shan_thin: false
+  shan_thin_italic: false
+  shan_regular: true
+  shan_italic: true
+  shan_bold: true
+  shan_bold_italic: true
+  shan_black: false
+  shan_black_italic: false

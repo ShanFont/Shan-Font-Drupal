@@ -1,0 +1,20 @@
+shan-fonts:
+  css:
+    theme:
+      css/shanfont.css: {}
+  dependencies:
+    - core/drupal
+
+shan-cdn:
+  css:
+    theme:
+      https://cdn.jsdelivr.net/gh/ShanFont/ShanFont@main/shan.css: { type: external }
+  dependencies:
+    - core/drupal
+
+admin-styles:
+  css:
+    theme:
+      css/shanfont-admin.css: {}
+  dependencies:
+    - core/drupal

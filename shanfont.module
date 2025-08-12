@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Shan Font module for easy integration of Shan fonts.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function shanfont_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.shanfont':
+      return '<p>' . t('The Shan Font module provides easy integration of Shan fonts for your Drupal website. Configure the font settings at <a href="@url">Shan Font settings</a>.', ['@url' => '/admin/config/user-interface/shanfont']) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function shanfont_page_attachments(array &$attachments) {
+  $config = \Drupal::config('shanfont.settings');
+  $mode = $config->get('font_mode');
+  
+  // Don't attach anything if theme defaults is selected
+  if ($mode === 'theme_defaults') {
+    return;
+  }
+  
+  // Attach admin styles on admin pages
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    $attachments['#attached']['library'][] = 'shanfont/admin-styles';
+  }
+  
+  if ($mode === 'quick_setup') {
+    // Try CDN first, fallback to local fonts
+    $attachments['#attached']['library'][] = 'shanfont/shan-cdn';
+    $attachments['#attached']['library'][] = 'shanfont/shan-fonts';
+  }
+  elseif ($mode === 'custom_selection') {
+    // Only attach local fonts for custom selection
+    $attachments['#attached']['library'][] = 'shanfont/shan-fonts';
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function shanfont_preprocess_html(&$variables) {
+  $config = \Drupal::config('shanfont.settings');
+  $mode = $config->get('font_mode');
+  
+  if ($mode === 'quick_setup') {
+    // Add body class for quick setup styling
+    $variables['attributes']['class'][] = 'shanfont-quick-setup';
+  }
+  elseif ($mode === 'custom_selection') {
+    // Add body class for custom selection
+    $variables['attributes']['class'][] = 'shanfont-custom-selection';
+    
+    // Add selected fonts as data attributes for CSS targeting
+    $selected_fonts = $config->get('selected_fonts') ?: [];
+    if (!empty($selected_fonts)) {
+      $variables['attributes']['data-shanfont-variants'] = implode(' ', array_keys(array_filter($selected_fonts)));
+    }
+  }
+}

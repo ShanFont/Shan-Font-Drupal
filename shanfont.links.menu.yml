@@ -1,0 +1,6 @@
+shanfont.admin_form:
+  title: 'Shan Font'
+  description: 'Configure Shan Font settings for your website'
+  parent: system.admin_config_ui
+  route_name: shanfont.admin_form
+  weight: 10

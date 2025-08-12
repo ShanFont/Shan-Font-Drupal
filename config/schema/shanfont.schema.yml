@@ -1,0 +1,40 @@
+shanfont.settings:
+  type: config_object
+  label: 'Shan Font settings'
+  mapping:
+    font_mode:
+      type: string
+      label: 'Font mode selection'
+      constraints:
+        Choice:
+          - theme_defaults
+          - quick_setup
+          - custom_selection
+    selected_fonts:
+      type: mapping
+      label: 'Selected font variants for custom mode'
+      mapping:
+        shan_thin:
+          type: boolean
+          label: 'Shan Thin font'
+        shan_thin_italic:
+          type: boolean
+          label: 'Shan Thin Italic font'
+        shan_regular:
+          type: boolean
+          label: 'Shan Regular font'
+        shan_italic:
+          type: boolean
+          label: 'Shan Italic font'
+        shan_bold:
+          type: boolean
+          label: 'Shan Bold font'
+        shan_bold_italic:
+          type: boolean
+          label: 'Shan Bold Italic font'
+        shan_black:
+          type: boolean
+          label: 'Shan Black font'
+        shan_black_italic:
+          type: boolean
+          label: 'Shan Black Italic font'

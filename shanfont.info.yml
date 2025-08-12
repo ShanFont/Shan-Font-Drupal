@@ -1,0 +1,9 @@
+name: Shan Font
+type: module
+description: 'Easy integration of Shan fonts for your Drupal website with multiple configuration options.'
+core_version_requirement: ^9 || ^10 || ^11
+package: Typography
+version: '1.0.0'
+dependencies:
+  - drupal:system
+configure: shanfont.admin_form

@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Shan Font module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function shanfont_install() {
+  // Set default configuration on install
+  $config = \Drupal::configFactory()->getEditable('shanfont.settings');
+  $config->set('font_mode', 'quick_setup');
+  $config->set('selected_fonts', [
+    'shan_regular' => TRUE,
+    'shan_bold' => TRUE,
+    'shan_italic' => FALSE,
+    'shan_thin' => FALSE,
+    'shan_thin_italic' => FALSE,
+    'shan_bold_italic' => FALSE,
+    'shan_black' => FALSE,
+    'shan_black_italic' => FALSE,
+  ]);
+  $config->save();
+  
+  \Drupal::messenger()->addMessage(t('Shan Font module has been installed. Configure it at <a href="@url">Shan Font settings</a>.', ['@url' => '/admin/config/user-interface/shanfont']));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function shanfont_uninstall() {
+  // Clean up configuration on uninstall
+  \Drupal::configFactory()->getEditable('shanfont.settings')->delete();
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function shanfont_requirements($phase) {
+  $requirements = [];
+  
+  if ($phase === 'runtime') {
+    $module_path = \Drupal::service('extension.list.module')->getPath('shanfont');
+    $fonts_path = $module_path . '/fonts';
+    
+    $requirements['shanfont_fonts'] = [
+      'title' => t('Shan Font Files'),
+      'value' => is_dir($fonts_path) ? t('Font files directory exists') : t('Font files directory missing'),
+      'severity' => is_dir($fonts_path) ? REQUIREMENT_OK : REQUIREMENT_WARNING,
+      'description' => is_dir($fonts_path) ? 
+        t('Shan font files are available for local fallback.') : 
+        t('Font files directory is missing. CDN fonts will be used exclusively.'),
+    ];
+  }
+  
+  return $requirements;
+}
